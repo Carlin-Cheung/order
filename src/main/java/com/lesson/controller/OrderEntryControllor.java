@@ -88,7 +88,7 @@ public class OrderEntryControllor {
         }
 
         logger.info("Session Id = " + sessionId);
-        return "jsp/menuList.jsp";
+        return "menuList";
     }
 
     /**
@@ -109,7 +109,7 @@ public class OrderEntryControllor {
 
         model.addAttribute("menu", menu);
         session.setAttribute("categoryManager", categoryManager);
-        return "jsp/menuEdit.jsp";
+        return "menuEdit";
     }
 
     /**
@@ -125,7 +125,7 @@ public class OrderEntryControllor {
         HttpSession session = request.getSession();
 
         session.setAttribute("categoryManager", categoryManager);
-        return "jsp/menuAdd.jsp";
+        return "menuAdd";
     }
 
     /**
@@ -171,7 +171,7 @@ public class OrderEntryControllor {
         HttpSession session = request.getSession();
         model.addAttribute("menus", menuManager.getAllMenus());
         session.setAttribute("categoryManager", categoryManager);
-        return "jsp/menuList.jsp";
+        return "menuList";
     }
 
     /**
@@ -205,7 +205,7 @@ public class OrderEntryControllor {
     @RequestMapping(value = "/showCategories")
     public String showCategories(Model model) {
         model.addAttribute("categories", categoryManager.getAllCategories());
-        return "jsp/categoryList.jsp";
+        return "categoryList";
     }
 
     /**
@@ -217,7 +217,7 @@ public class OrderEntryControllor {
     @RequestMapping(value = "/addCategory", method = RequestMethod.GET)
     public String addCategory(Model model) {
         logger.info("Start addCategory!");
-        return "jsp/categoryAdd.jsp";
+        return "categoryAdd";
     }
 
     /**
@@ -230,7 +230,7 @@ public class OrderEntryControllor {
     @RequestMapping(value = "/editCategory/{cid}")
     public String editCategory(Model model, @PathVariable int cid) {
         model.addAttribute("category", categoryManager.getCategoryById(cid));
-        return "jsp/categoryEdit.jsp";
+        return "categoryEdit";
     }
 
     /**
@@ -263,7 +263,7 @@ public class OrderEntryControllor {
             logger.info("出错了，id 不正确！");
         }
         model.addAttribute("categories", categoryManager.getAllCategories());
-        return "jsp/categoryList.jsp";
+        return "categoryList";
     }
 
     /**
@@ -291,7 +291,7 @@ public class OrderEntryControllor {
             }
         }
         model.addAttribute("categories", categoryManager.getAllCategories());
-        return "jsp/categoryList.jsp";
+        return "categoryList";
     }
 
 }
